@@ -1,0 +1,36 @@
+.login-section {
+    width: 30%;
+    margin: auto;
+    display: block;
+    margin-top: 10%;
+    border: 2px solid gray;
+    padding: 15px;
+    background-color: #FFF;
+}
+.form-group {
+    display: flex;
+}
+.icon {
+    font-size: 20pt;
+    width: 7%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+.btn-section {
+    text-align: center;
+}
+.or {
+    display: block;
+    line-height: 35px;
+    font-size: 10pt;
+}
+.bottom-text {
+    line-height: 35px;
+    font-size: 10pt;
+}
+.btn-social {
+    color: #FFF;
+    font-size: 12pt;
+    margin-right: 15px;
+}

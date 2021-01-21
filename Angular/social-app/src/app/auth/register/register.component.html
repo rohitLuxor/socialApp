@@ -1,0 +1,30 @@
+<section class="login-section register-sec">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <h1>Please fill your details below</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="User Name" formControlName="UserName" maxlength="15"
+                required />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName" maxlength="25"
+                required />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last Name" formControlName="LastName" maxlength="25"
+                required />
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address" formControlName="Email" required />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" formControlName="Password" required />
+        </div>
+        <div class="btn-section">
+            <button class="btn btn-gradient" id="submit">Register</button>
+            <div class="bottom-text">
+                <p>Already registered? <a [routerLink]="['/login']">Login</a></p>
+            </div>
+        </div>
+    </form>
+</section>
