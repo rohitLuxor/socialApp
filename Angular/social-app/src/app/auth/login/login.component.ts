@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     }
     this.authService.signIn(socialPlatformProvider).then((userdata) => {
+      console.info(userdata);
       this.appService.SocialRegister(userdata).subscribe((data: any) => {
         if (data.statusCode == 200) {
           window.alert(data.message);

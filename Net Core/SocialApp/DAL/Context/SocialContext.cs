@@ -14,5 +14,7 @@ namespace SocialApp.DAL.Context
         }
 
         public DbSet<UserTable> UserTables { get; set; }
+        public DbSet<EntityTable> EntityTable { get; set; }
+        public DbSet<DynamicTable> DynamicTable { get; set; }
     }
 }

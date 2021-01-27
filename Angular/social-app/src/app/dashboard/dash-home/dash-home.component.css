@@ -1,0 +1,17 @@
+.dash-block {
+    background-color: #FFF;
+    width: 75%;
+    margin: auto;
+    margin-top: 10%;
+}
+.add {
+    text-align: end;
+    margin-right: 6px;
+    padding-top: 6px;
+}
+.th {
+    padding: 10px;
+    line-height: 40px;
+    font-size: large;
+    font-weight: 600;
+}

@@ -1,0 +1,16 @@
+<section class="login-section register-sec">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <h1>Please fill your details below</h1>
+        <h3>This Is Dynamic Form</h3>
+        <div class="form-group" *ngFor="let data of entityData">
+            <input type={{data.entityType}} class="form-control" placeholder={{data.entityName}} formControlName={{data.entityName}} maxlength="15"
+                required />
+        </div>
+        <div class="btn-section">
+            <button class="btn btn-gradient" id="submit">Register</button>
+            <div class="bottom-text">
+                <p>Already registered? <a [routerLink]="['/login']">Login</a></p>
+            </div>
+        </div>
+    </form>
+</section>

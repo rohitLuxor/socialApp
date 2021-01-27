@@ -140,5 +140,51 @@ namespace SocialApp.Controllers
             }
             return returnModel;
         }
+
+        [Route("DynamicAddUser")]
+        [HttpPost]
+        public async Task<ReturnModel> DynamicAddUser(List<DynamicUserModel> userModel)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            foreach (var item in userModel)
+            {
+                DynamicTable dynamicTable = new DynamicTable
+                {
+                    EntityName = item.EntityName,
+                    EntityType = item.EntityType,
+                    UserId = 2 //Add userId dynamically from form
+                };
+                _socialContext.DynamicTable.Add(dynamicTable);
+                await _socialContext.SaveChangesAsync();
+            }
+            returnModel.StatusCode = HttpStatusCode.OK;
+            returnModel.Message = "Successfully Added New User";
+            return returnModel;
+        }
+
+
+        [Route("GetDynamicUser")]
+        [HttpGet]
+        public async Task<ReturnModel> GetDynamicUser(int userId)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            var data = (from users in _socialContext.UserTables
+                        join dy in _socialContext.DynamicTable
+                        on users.Id equals dy.UserId
+                        select new { users, dy}).ToList();
+            if (data.Count > 0)
+            {
+                returnModel.StatusCode = HttpStatusCode.OK;
+                returnModel.ResponseData = data;
+                returnModel.Message = "Successfully loaded dynamic results";
+            }
+            else
+            {
+                returnModel.StatusCode = HttpStatusCode.NotFound;
+                returnModel.Message = "No data found";
+            }
+            return returnModel;
+        }
+
     }
 }

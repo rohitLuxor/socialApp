@@ -16,5 +16,17 @@ export class AppService {
   };
   SocialRegister(userdata) {
     return this.http.post(this.baseUrl + 'SocialLogin', userdata);
+  };
+  GetActiveEntity() {
+    return this.http.get(this.baseUrl + 'Admin/GetActiveEntity');
+  };
+  GetAllEntity() {
+    return this.http.get(this.baseUrl + 'Admin/GetAllEntity');
+  };
+  UpdateEntities(data) {
+    return this.http.post(this.baseUrl + 'Admin/UpdateEntity', data);
+  }
+  AddEntities(data) {
+    return this.http.post(this.baseUrl + 'Admin/AddEntity', data);
   }
 }
